@@ -29,7 +29,7 @@ Type=simple
 
 ExecStart=/usr/bin/bt-agent -c NoInputNoOutput -p /etc/bluetooth/pin.conf
 ExecStartPost=/bin/sleep 1
-ExecStartPost=/bin/hciconfig hci0 sspmode 0
+ExecStartPost=/bin/hciconfig hci0 sspmode 0 piscan
 Restart=always
 RestartSec=1
 [Install]
@@ -58,5 +58,3 @@ sudo systemctl start systemd-networkd
 sudo systemctl start bt-agent
 sudo systemctl start bt-network
 
-sudo bt-adapter --set DiscoverableTimeout 0 
-sudo bt-adapter --set Discoverable 1 
